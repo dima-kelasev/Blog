@@ -1,8 +1,16 @@
 # It's my Blog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It 's my blog about me, my Life, my expirince, and my developer journey.
 
-## Available Scripts
+## What technologies will I use in my blog:
 
-In the project directory, you can run:
+* CSS
+
+* React.js
+
+* Redux.js
+
+* Saga.js
+
+* Java Script
 
