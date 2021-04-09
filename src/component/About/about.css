@@ -1,0 +1,28 @@
+.content__intro {
+	max-width: 90%;
+	margin: 0 auto;
+	display: flex;
+	
+}
+
+.content__text__block {
+	width: 70%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+}
+
+.content__introduce {
+	max-width: 50%;
+}
+
+.rigth_block {
+	width: 30vw;
+	background: chocolate;
+	height: 100vh;
+	position: absolute;
+    right: 0;
+    top: 0;
+}

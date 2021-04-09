@@ -1,8 +1,8 @@
 
 import './style/App.css';
-import About from './component/About';
-import Blog from './component/BlogPage';
-import Home from './component/Home'
+import About from './component/About/About';
+import Blog from './component/Blog/BlogPage';
+import Home from './component/Home/Home'
 import {
   BrowserRouter as Router,
   Switch,

@@ -9,7 +9,7 @@
 
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   list-style: none;
   padding: 0;
   width: 50%;
@@ -24,4 +24,10 @@
 .nav_bar {
   position: relative;
   z-index: 2;
+}
+
+@media (max-width: 450px) {
+  .header {
+    width: 100%;
+  }
 }
