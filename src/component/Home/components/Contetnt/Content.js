@@ -3,7 +3,7 @@ import React from 'react';
 import '../../home.css'
 
 
-const Content =() => {
+const Content = () => {
 	
 return (
 	<div>
