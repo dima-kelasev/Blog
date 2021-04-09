@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+.page {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  width: 50%;
+}
+
+.header_link {
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.nav_bar {
+  position: relative;
+  z-index: 2;
+}
