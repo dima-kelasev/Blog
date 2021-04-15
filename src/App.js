@@ -6,7 +6,7 @@ import Home from './component/Home/Home';
 import NotFound from './component/NotFound/NotFound';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 
-  export default function App() {
+ function App() {
 
     return (
       <div className="App">
@@ -37,3 +37,5 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
       </div>
     );
   }
+
+  export default App;
