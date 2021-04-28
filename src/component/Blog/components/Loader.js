@@ -4,21 +4,13 @@ import '../style.css'
 const Loader = () => {
 	return (
 		<div className='loader'>
-			{/* <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> */}
-			<div class="sk-cube-grid">
-  <div class="sk-cube sk-cube1"></div>
-  <div class="sk-cube sk-cube2"></div>
-  <div class="sk-cube sk-cube3"></div>
-  <div class="sk-cube sk-cube4"></div>
-  <div class="sk-cube sk-cube5"></div>
-  <div class="sk-cube sk-cube6"></div>
-  <div class="sk-cube sk-cube7"></div>
-  <div class="sk-cube sk-cube8"></div>
-  <div class="sk-cube sk-cube9"></div>
-</div>
+			<div className="sk-cube-grid">
+      {[...Array(8).keys()].map(el => (
+        <div className={`sk-cube sk-cube${el + 1}`}/>
+      ))}
+      </div>
 		</div>
-		
 	)
 }
 
-export default Loader;
+export default React.memo(Loader);

@@ -1,10 +1,8 @@
 import * as React from 'react';
 import '../../about.css';
+import Button from "../../../Contact/components/Button";
 
 const AboutText =() => {
-	// TODO следи за форматированием и отступами везде по компоненту
-	// TODO оберни компонент в React.memo done
-	// react from 'react' неверный импорт, React должен быть с заглавной буквы done
 	return (
 		<main className='content__intro'>
 			<div className='content__text__block'>
@@ -18,6 +16,7 @@ const AboutText =() => {
 							And yet this blog will be more about my history and my journey into programming.
 					</p>
 					<p>Here is my technology stack that I managed to master</p>
+				<Button text="Call me" />
 			</div>
 				<div className='rigth_block'></div>
 		</main>
