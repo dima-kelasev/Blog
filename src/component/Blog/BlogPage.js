@@ -10,6 +10,8 @@ const BlogPage = () => {
 	const [posts, setPosts] = React.useState([]);
 	const [loading, setLoading] = React.useState(false);
 
+	// useDispatch, useSelector
+
 	React.useEffect(() => {
 		const client = Prismic.client(apiEndpoint, { accessToken });
 		setLoading(true);
@@ -44,7 +46,7 @@ const BlogPage = () => {
 	
 
 
-function sortArray(array) {
+const sortArray = (array) => {
 	array.sort(function(a, b){
 		const dateA=new Date(a.data.date);
 		const dateB=new Date(b.data.date);
@@ -60,16 +62,16 @@ if (loading) {
 return (
 		<div className="blogWraper">
 			{posts.map(post => (
-				<div>
-				<div className="img-back"></div>
-					<h1 className='blog_title'>{RichText.asText(post.data.title)}</h1>
-					<div className='blog_wraper_subtitle'>
-						<p className='blog_subtitle'>{RichText.asText(post.data.type)}</p>
-						<p className='blog_dot'>&bull;</p>
-						<p className='blog_data'>{formateDate((post.data.date))}</p>
-					</div>
-					<img src={post.data.logo_page.url}/>
-					<p className='blog_text'>{RichText.asText(post.data.text)}</p>
+				<div >
+					<div className="img-back"></div>
+						<h1 className='blog_title'>{RichText.asText(post.data.title)}</h1>
+						<div className='blog_wraper_subtitle'>
+							<p className='blog_subtitle'>{RichText.asText(post.data.type)}</p>
+							<p className='blog_dot'>&bull;</p>
+							<p className='blog_data'>{formateDate((post.data.date))}</p>
+						</div>
+						<img src={post.data.logo_page.url}/>
+						<p className='blog_text'>{RichText.asText(post.data.text)}</p>
 				</div>
 			))}
 		</div>

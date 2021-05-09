@@ -27,6 +27,7 @@
 	font-size: 18px;
 	line-height: 22px;
 	max-width: 40%;
+	margin: 17px 0 60px;
 }
 
 .social_and_btn_block {
@@ -42,8 +43,16 @@
 .form input {
 	border: 0;
 	border-bottom: 1px solid #000;
-	padding: 0 0 15px 0;
+	padding: 0 0 10px 0;
 	margin-right: 83px;
+	outline: none;
+	width: 20%;
+	background: transparent;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
 }
 
 .logo_block {

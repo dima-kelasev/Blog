@@ -125,3 +125,12 @@
             transform: scale3D(0, 0, 1);
   } 
 }
+
+@media (max-width: 450px) {
+  .img-back {
+    display: none;
+  }
+  .blog_wraper_subtitle {
+    flex-direction: column;
+  }
+}
