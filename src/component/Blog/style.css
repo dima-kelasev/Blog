@@ -3,15 +3,18 @@
   margin: 0 auto;
   text-align: left;
   margin-top: 106px;
- 
+}
+
+.post {
+
 }
 
 .img-back {
-  background-image: url(../../images/01.png);
+    background-image: url(../../images/01.png);
   background-position: top right;
   background-repeat: no-repeat;
   min-height: 353px;
-  width: 31%;
+  width: 100%;
   position: fixed;
   right: 0;
   z-index: -1;
@@ -130,7 +133,18 @@
   .img-back {
     display: none;
   }
+
+  .blog_dot {
+    display: none;
+  }
   .blog_wraper_subtitle {
     flex-direction: column;
+    align-items: baseline;
+    max-height: none;
+    margin-top: 10%;
   }
+
+.blogWraper {
+  margin-top: 15%;
+}
 }

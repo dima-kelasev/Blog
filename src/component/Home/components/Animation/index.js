@@ -1,6 +1,7 @@
 import * as React from 'react';
 import '../../animation.css';
 import number from '../../../../images/1.png'
+import Arrow from "./arrow";
 
 const Paralax = () => {
 	const contentRef = React.useRef(null);
@@ -52,19 +53,20 @@ const Paralax = () => {
 			</p>
 				<div className="page">
 					<div className="parallax" ref={paralaxRef}>
-						
+
 						<div className="parallax__montain parallax__montain_1" ref={px1}/>
 						<div className="parallax__montain parallax__montain_2" ref={px2}/>
 						<div className="parallax__montain parallax__montain_3" ref={px3}/>
+						<Arrow/>
 						<div className="parallax__fog" ref={fogRef}></div>
 						
 					</div>
 					<div className="content" ref={contentRef}>
 						<div className="content__body">
+
 							<div className="content__header">
 								<h1 className="content__title">Welcome</h1>
-								<h2 className="content__subtitle">Блог Димы крутого веб-разработчика,
-спортсмена и просто красавчика</h2>
+								<p className="content__subtitle">Здесь могла бы быть ваша реклама😜</p>
 							</div>
 						</div>
 					</div>

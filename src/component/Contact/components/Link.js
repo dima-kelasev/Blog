@@ -1,9 +1,9 @@
 import * as React from 'react';
-import instagram from "../../../images/instagram.jpg";
-import Vkontakte from "../../../images/vk.jpg";
-import FaceBook from "../../../images/facebook.jpg";
-import Telegram from "../../../images/telegram.jpg";
-import LinkedIn from "../../../images/linkedin.jpg";
+import instagram from "../../../images/instagram.svg";
+import Vkontakte from "../../../images/vk.svg";
+import FaceBook from "../../../images/facebook.svg";
+import Telegram from "../../../images/telegram.svg";
+import LinkedIn from "../../../images/linkedin.svg";
 
 const SocialLink = () => {
   return (

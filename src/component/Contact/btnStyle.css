@@ -187,5 +187,15 @@
 }
 
 .btn_Disable {
-	background: greenyellow;
+	background: gray;
+	cursor: not-allowed;
+}
+.btn_Disable:hover {
+	box-shadow: gray;
+}
+
+@media (max-width: 425px) {
+	.wave-btn {
+		margin: 0 0 40% 0;
+	}
 }

@@ -72,10 +72,17 @@
 	background-position: right bottom; */
 }
 .content__title {
-	font-size: 200px;
+	font-size: 100px;
+	line-height: 29.26px;
+	font-weight: 700;
+	letter-spacing: 40px;
 }
 .content__subtitle {
-	font-size: 120px;
+	font-size: 80px;
+	min-height: 450px;
+	font-weight: 300;
+	/*font-size: 20px;*/
+	/*line-height: 170%;*/
 }
 .content__article {
 	background-color: rgba(255,255,255,0.5);
@@ -88,18 +95,19 @@
 
 @media (max-width:1250px){
 	.content__title{
-		font-size: 130px;
+		font-size: 80px;
 	}
 	.content__subtitle{
 		font-size: 70px;
 	}
 }
-@media (max-width:767px){
+@media (max-width:728px){
 	.content__title{
 		font-size: 50px;
+		letter-spacing: 30px;
 	}
 	.content__subtitle{
-		font-size: 30px;
+		/*font-size: 30px;*/
 	}
 	.content__article{
 		font-size: 14px;
@@ -108,10 +116,19 @@
 	.content__article p{
 		margin: 0px 0px 10px 0px;
 	}
+
 }
 
+@media (max-width:506px){
+	.content__title{
+		font-size: 34px;
+		letter-spacing: 16px;
+	}
 
-
+	.content__subtitle {
+		font-size: 30px;
+	}
+}
 
 .our_turs {
 	text-align: center;

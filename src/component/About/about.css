@@ -2,20 +2,61 @@
 	max-width: 90%;
 	margin: 0 auto;
 	display: flex;
-	
+}
+
+.imgBack {
+	background: url(../../images/02.png);
+	background-position: right;
+	background-repeat: no-repeat;
+	min-height: 353px;
+	width: 100%;
+	position: fixed;
+	right: 0;
+	z-index: -1;
+	bottom: 0%;
+}
+
+.info__subtitle {
+	margin: 0 0 2% 0;
+	opacity: .5;
+	letter-spacing: 5px;
 }
 
 .content__text__block {
-	width: 70%;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	text-align: center;
 	justify-content: center;
+
+}
+
+.content__text__block h1 {
+	font-size: 24px;
+	line-height: 29.26px;
+	font-weight: 700;
+	letter-spacing: 10px;
+	text-align: left;
+}
+
+.content__text__block h3 {
+
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 29px;
+	margin: 0;
+
 }
 
 .content__introduce {
-	max-width: 50%;
+	max-width: 100%;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 170%;
+}
+
+.content__introduce:last-of-type {
+	margin: 0 0 10%;
 }
 
 .rigth_block {
@@ -27,13 +68,126 @@
     top: 0;
 }
 
+.SkilBlock {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+}
+
+.skilWrap {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+	align-items: baseline;
+}
+
+.skilWrap h2 {
+	font-size: 24px;
+	line-height: 29.26px;
+	font-weight: 700;
+	letter-spacing: 10px;
+	/*text-align: left;*/
+}
+
+.skilWrap li {
+	list-style: none;
+	margin-bottom: 19%;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 170%;
+}
+
+.line {
+	width: 100%;
+	height: 2px;
+	background: #000;
+	opacity: 0.3;
+	margin: 5% 0;
+}
+
+.mobileLink {
+	display: none;
+}
+
+@media (max-width: 1024px) {
+	.mobileLink {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		margin: 5% 0;
+	}
+
+	.logo_block {
+		width: 50%;
+	}
+}
+
+@media (max-width: 768px) {
+	.SkilBlock {
+		flex-direction: column;
+	}
+
+	.skilWrap {
+		justify-content: space-between;
+		margin-bottom: 10%;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.lastLine {
+		display: block;
+	}
+}
+
 @media (max-width: 450px) {
 	.rigth_block {
 		position: fixed;
 		z-index: -1;
 	}
 	.content__text__block {
-		z-index: 2;
-		width: 100%;
+		width: 90%;
+		text-align: left;
+		margin: 0 auto;
 	}
+
+	.content__text__block h3 {
+		color: #20564E;
+		margin-top: 10%;
+	}
+
+	.content__text__block h1 {
+		font-size: 21px;
+		text-align: center;
+	}
+
+	.content__introduce {
+		max-width: 100%;
+		margin-top: 39px;
+	}
+
+	.SkilBlock {
+		flex-direction: column;
+	}
+
+	.skilWrap {
+		flex-direction: column;
+	}
+
+	.skilWrap h2 {
+		font-size: 22px;
+	}
+
+	.skilWrap ul {
+		padding: 0;
+	}
+
+	.line {
+		margin-bottom: 10%;
+	}
+
+
 }
+

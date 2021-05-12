@@ -1,18 +1,15 @@
 
-
 .img-back-contact {
 	background-image: url(../../images/04.png);
   background-position: top right;
   background-repeat: no-repeat;
   min-height: 353px;
-  width: 31%;
+  width: 100%;
   position: fixed;
   right: 0;
   z-index: -1;
   bottom: -20%;
 }
-
-
 
 .form_title {
 	font-weight: bold;
@@ -20,6 +17,7 @@
 	line-height: 170%;
 	max-width: 44%;
 	text-align: left;
+	 background: none !important;
 }
 
 .subtitle {
@@ -77,4 +75,42 @@ input::-webkit-inner-spin-button {
 	box-shadow:0px 0px 100px 0px rgba(255,134,64,0.54);
 	-webkit-box-shadow:0px 0px 100px 0px rgba(255,134,64,0.54);
 	-moz-box-shadow:0px 0px 100px 0px rgba(255,134,64,0.54);
+}
+
+@media (max-width: 425px) {
+	.form_title {
+		max-width: 100%;
+		font-size: 25px;
+	}
+
+	.subtitle {
+		max-width: 100%;
+	}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form input {
+		width: 100%;
+		margin-bottom: 13%
+	}
+
+	.social_and_btn_block {
+		flex-direction: column;
+		align-items: center;
+		margin-top: 10%;
+	}
+
+	.logo_block {
+		width: 100%;
+	}
+}
+
+@media (max-width: 425px) {
+	.blogWraper {
+		width: 90%;
+		margin-bottom: 20%;
+	}
 }
