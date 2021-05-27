@@ -119,11 +119,11 @@
 	}
 
 	.logo_block {
-		width: 50%;
+		width: 100%;
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 846px) {
 	.SkilBlock {
 		flex-direction: column;
 	}
@@ -131,6 +131,10 @@
 	.skilWrap {
 		justify-content: space-between;
 		margin-bottom: 10%;
+	}
+
+	.skilWrap ul {
+		text-align: right;
 	}
 
 	.line {
@@ -147,6 +151,11 @@
 		position: fixed;
 		z-index: -1;
 	}
+
+	.skilWrap ul {
+		text-align: left;
+	}
+
 	.content__text__block {
 		width: 90%;
 		text-align: left;
