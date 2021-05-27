@@ -71,7 +71,7 @@ return (
 							<p className='blog_data'>{formateDate((post.data.date))}</p>
 						</div>
 						<img src={post.data.logo_page.url}/>
-						<p className='blog_text'>{RichText.asText(post.data.text)}</p>
+						<div className='blog_text'>{RichText.render(post.data.text)}</div>
 				</div>
 			))}
 		</div>
