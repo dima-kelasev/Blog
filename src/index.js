@@ -5,16 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 import {createStore} from 'redux';
-import Allreducers from './reducers/Allreducers'
+import allreducers from './reducers/allreducers'
 import {Provider} from 'react-redux'
 import { transitions, positions, types, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 
-const initialState = [];
+const store = createStore(
+  allreducers
+)
 
-function Store( state = initialState, action) {
 
-}
 const options = {
   position: positions.BOTTOM_CENTER,
   timeout: 7000,
@@ -23,7 +23,6 @@ const options = {
   transition: transitions.FADE
 }
 
-const store = createStore(Allreducers)
 
 ReactDOM.render(
   <AlertProvider template={AlertTemplate} {...options}>

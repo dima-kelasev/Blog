@@ -35,7 +35,6 @@ const TextSkil = () => {
           <h2>DevOps</h2>
           <ul>
             <li>Nginx</li>
-            <li>Nginx</li>
             <li>Heroku</li>
             <li>AWS</li>
           </ul>

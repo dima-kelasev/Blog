@@ -4,11 +4,18 @@ import { Link, RichText, Date } from 'prismic-reactjs';
 import './style.css';
 import Loader from './components/Loader';
 import { apiEndpoint, accessToken} from '../../data/constants';
+import {useDispatch, useSelector} from "react-redux";
+import postReducers from "../../reducers/post/postReducers";
+
 
 
 const BlogPage = () => {
-	const [posts, setPosts] = React.useState([]);
+	// const [posts, setPosts] = React.useState([]);
 	const [loading, setLoading] = React.useState(false);
+	const dispatch = useDispatch();
+	const posts = useSelector((state) => state.postReducers.posts);
+
+	console.log('posts', posts);
 
 	// useDispatch, useSelector
 
@@ -21,7 +28,8 @@ const BlogPage = () => {
 					Prismic.Predicates.at('document.type', 'blog')
 				)
 				if (response) {
-					setPosts(response.results)
+					// setPosts(response.results)
+					dispatch({ type:'UPDATE_POSTS', dataPosts: response.results})
 				}
 			} catch (error) {
 				console.error(error);

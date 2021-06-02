@@ -1,21 +1,27 @@
 import * as React from 'react';
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
+import './navStyle.css'
 
 const Navigation = () => {
+  const checkActive = (match, location) => {
+    if(!location) return false;
+    const {pathname} = location;
+    return pathname === "/";
+  }
   return(
     <nav className='nav_bar'>
       <ul className='header'>
         <li >
-          <Link className='header_link' to="/">Home</Link>
+          <NavLink activeClassName='active' isActive={checkActive} className='header_link' to="/">Home</NavLink>
         </li>
         <li>
-          <Link className='header_link' to="/about">About</Link>
+          <NavLink activeClassName='active' className='header_link' to="/about">About</NavLink>
         </li>
         <li>
-          <Link className='header_link' to="/blog">Blog</Link>
+          <NavLink activeClassName='active' className='header_link' to="/blog">Blog</NavLink>
         </li>
         <li>
-          <Link className='header_link' to="/contact">Contacts</Link>
+          <NavLink activeClassName='active' className='header_link' to="/contact">Contacts</NavLink>
         </li>
       </ul>
     </nav>

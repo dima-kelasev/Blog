@@ -6,7 +6,8 @@ import Home from './component/Home/Home';
 import Conacts from './component/Contact/Cantact'
 import NotFound from './component/NotFound/NotFound';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Nav from './component/Nav/nav'
+import Nav from './component/Nav/nav';
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 
  function App() {
     return (
