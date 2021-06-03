@@ -135,10 +135,18 @@
   } 
 }
 
+@media (max-width: 768px) {
+  .imgBlog {
+    width: 86%;
+  }
+}
+
 @media (max-width: 450px) {
   .img-back {
     display: none;
   }
+
+
 
   .blog_dot {
     display: none;
