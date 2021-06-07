@@ -1,6 +1,6 @@
 import * as React from 'react';
 import '../../about.css';
-import Button from "../../../Contact/components/Button";
+import avatar from '../../../../images/avatar.png'
 import TextSkil from "./TextSkil";
 
 const AboutText =() => {
@@ -8,6 +8,7 @@ const AboutText =() => {
 		<main className='content__intro'>
 			<div className='content__text__block'>
 				<div className='imgBack'></div>
+				<img className='avatar' src={avatar} alt=""/>
 				<h1>Dmitriy Kelasev </h1>
 				<p className='info__subtitle'>Web developer</p>
 				<h3>Here I will tell you about myself!</h3>

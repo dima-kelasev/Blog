@@ -14,7 +14,7 @@ const BlogPage = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.postReducers.posts);
 
-  console.log('posts', posts);
+  // console.log('posts', posts);
 
   // useDispatch, useSelector
 
@@ -38,6 +38,8 @@ const BlogPage = () => {
     }
     fetchData();
   }, [])
+
+  // console.log('posts', posts[0].tags);
 
   const formateDate = (date) => {
     const data = Date(date)
@@ -74,6 +76,10 @@ const BlogPage = () => {
             <p className='blog_subtitle'>{RichText.asText(post.data.type)}</p>
             <p className='blog_dot'>&bull;</p>
             <p className='blog_data'>{formateDate((post.data.date))}</p>
+          </div>
+          <div>
+            <div className='blog_tags'>{post.tags.map(tag =>
+             <p>{'#' + tag}</p>)}</div>
           </div>
           <img className='imgBlog' src={post.data.logo_page.url}/>
           <div className='blog_text'>{RichText.render(post.data.text)}</div>
