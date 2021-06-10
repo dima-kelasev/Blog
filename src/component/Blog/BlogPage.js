@@ -79,7 +79,7 @@ const BlogPage = () => {
           </div>
           <div>
             <div className='blog_tags'>{post.tags.map(tag =>
-             <p>{'#' + tag}</p>)}</div>
+             <p>{`#${tag}`}</p>)}</div>
           </div>
           <img className='imgBlog' src={post.data.logo_page.url}/>
           <div className='blog_text'>{RichText.render(post.data.text)}</div>
