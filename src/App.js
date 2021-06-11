@@ -8,6 +8,7 @@ import NotFound from './component/NotFound/NotFound';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Nav from './component/Nav/nav';
 import { SwitchTransition, CSSTransition } from "react-transition-group";
+import Post from "./component/Blog/components/Post";
 
  function App() {
     return (
@@ -20,6 +21,7 @@ import { SwitchTransition, CSSTransition } from "react-transition-group";
               <Route path="/about" component={About}/>
               <Route path="/Blog" component={Blog}/>
               <Route path="/contact" component={Conacts}/>
+              <Route path='/:id' component={Post}/>
               <Route component={NotFound} />
             </Switch>
           </div>

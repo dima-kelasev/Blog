@@ -1,8 +1,10 @@
 import * as React from 'react';
 import Prismic from '@prismicio/client';
-import {Link, RichText, Date} from 'prismic-reactjs';
+import {RichText, Date} from 'prismic-reactjs';
+import {Link, Route, Switch, useParams} from "react-router-dom";
 import './style.css';
 import Loader from './components/Loader';
+
 import {apiEndpoint, accessToken} from '../../data/constants';
 import {useDispatch, useSelector} from "react-redux";
 import postReducers from "../../reducers/post/postReducers";
@@ -14,9 +16,6 @@ const BlogPage = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.postReducers.posts);
 
-  // console.log('posts', posts);
-
-  // useDispatch, useSelector
 
   React.useEffect(() => {
     const client = Prismic.client(apiEndpoint, {accessToken});
@@ -39,8 +38,6 @@ const BlogPage = () => {
     fetchData();
   }, [])
 
-  // console.log('posts', posts[0].tags);
-
   const formateDate = (date) => {
     const data = Date(date)
     const formattedDate = Intl.DateTimeFormat('en-US', {
@@ -62,6 +59,9 @@ const BlogPage = () => {
     })
   }
   sortArray(posts)
+  console.log(posts)
+
+
 
   if (loading) {
     return <Loader/>
@@ -71,18 +71,24 @@ const BlogPage = () => {
       {posts.map(post => (
         <div>
           <div className="img-back"></div>
-          <h1 className='blog_title'>{RichText.asText(post.data.title)}</h1>
+             <h1 className='blog_title'>{RichText.asText(post.data.title)}</h1>
           <div className='blog_wraper_subtitle'>
             <p className='blog_subtitle'>{RichText.asText(post.data.type)}</p>
             <p className='blog_dot'>&bull;</p>
             <p className='blog_data'>{formateDate((post.data.date))}</p>
           </div>
-          <div>
+          <div className='blog_withLink'>
             <div className='blog_tags'>{post.tags.map(tag =>
              <p>{`#${tag}`}</p>)}</div>
+            <div className='blog_preview'>
+              <div className='blog_text'>{RichText.asText(post.data.text)}</div>
+            </div>
+            <Link className='link_BlogPost'  to={`${post.id}`}>Смотреть больше...</Link>
+
           </div>
-          <img className='imgBlog' src={post.data.logo_page.url}/>
-          <div className='blog_text'>{RichText.render(post.data.text)}</div>
+          {/*<img className='imgBlog' src={post.data.logo_page.url}/>*/}
+
+          {/*<div className='blog_text'>{RichText.render(post.data.text)}</div>*/}
         </div>
       ))}
     </div>
