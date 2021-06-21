@@ -1,13 +1,12 @@
 import * as React from 'react';
 import Prismic from '@prismicio/client';
 import {RichText, Date} from 'prismic-reactjs';
-import {Link, Route, Switch, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import './style.css';
 import Loader from './components/Loader';
 
 import {apiEndpoint, accessToken} from '../../data/constants';
 import {useDispatch, useSelector} from "react-redux";
-import postReducers from "../../reducers/post/postReducers";
 
 
 const BlogPage = () => {
@@ -59,13 +58,14 @@ const BlogPage = () => {
     })
   }
   sortArray(posts)
-  console.log(posts)
+
 
 
 
   if (loading) {
     return <Loader/>
   }
+
   return (
     <div className="blogWraper">
       {posts.map(post => (
@@ -86,9 +86,6 @@ const BlogPage = () => {
             <Link className='link_BlogPost'  to={`${post.id}`}>Смотреть больше...</Link>
 
           </div>
-          {/*<img className='imgBlog' src={post.data.logo_page.url}/>*/}
-
-          {/*<div className='blog_text'>{RichText.render(post.data.text)}</div>*/}
         </div>
       ))}
     </div>

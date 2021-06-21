@@ -5,6 +5,7 @@ import Prismic from '@prismicio/client';
 import Loader from "./Loader";
 import {useParams} from "react-router-dom";
 import {Link} from "react-router-dom";
+import NotFound from '../../NotFound/NotFound'
 
 const Post = () => {
   const [post, setPost] = React.useState(null);
@@ -12,15 +13,12 @@ const Post = () => {
   const {id} = useParams()
 
 
-  console.log(id)
-
   React.useEffect(() => {
     const client = Prismic.client(apiEndpoint, {accessToken});
     setLoading(true);
     const fetchData = async () => {
       try {
         const response = await client.getByID(id);
-        console.log('response', response);
         setPost(response);
       } catch (error) {
         console.error(error);
@@ -33,14 +31,14 @@ const Post = () => {
     }
   }, [])
 
-  console.log(post)
+
 
   if (loading) {
     return <Loader/>
   }
 
   if (!post) {
-    return null;
+    return <NotFound/>;
   }
 
   return (

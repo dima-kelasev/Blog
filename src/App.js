@@ -5,7 +5,7 @@ import Blog from './component/Blog/BlogPage';
 import Home from './component/Home/Home';
 import Conacts from './component/Contact/Cantact'
 import NotFound from './component/NotFound/NotFound';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Nav from './component/Nav/nav';
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import Post from "./component/Blog/components/Post";
@@ -22,7 +22,7 @@ import Post from "./component/Blog/components/Post";
               <Route path="/Blog" component={Blog}/>
               <Route path="/contact" component={Conacts}/>
               <Route path='/:id' component={Post}/>
-              <Route component={NotFound} />
+              <Route path='*' component={NotFound} />
             </Switch>
           </div>
         </BrowserRouter>
