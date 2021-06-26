@@ -8,88 +8,126 @@ import Loader from './components/Loader';
 import {apiEndpoint, accessToken} from '../../data/constants';
 import {useDispatch, useSelector} from "react-redux";
 
+import {getRandomArray} from "../../service/service.js";
 
 const BlogPage = () => {
-  // const [posts, setPosts] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
-  const dispatch = useDispatch();
-  const posts = useSelector((state) => state.postReducers.posts);
+    const [posts, setPosts] = React.useState([]);
+    const [loading, setLoading] = React.useState(false);
+    const [selectedTag, setSelectedTag] = React.useState('');
+    const [arrayTag, setArrayTag] = React.useState([])
+    const [active, setIsActive] = React.useState(false)
+    const dispatch = useDispatch();
+    // const posts = useSelector((state) => state.postReducers.posts);
 
 
-  React.useEffect(() => {
     const client = Prismic.client(apiEndpoint, {accessToken});
-    setLoading(true);
+
     const fetchData = async () => {
-      try {
-        const response = await client.query(
-          Prismic.Predicates.at('document.type', 'blog')
-        )
-        if (response) {
-          // setPosts(response.results)
-          dispatch({type: 'UPDATE_POSTS', dataPosts: response.results})
+        setLoading(true);
+        try {
+            const params = [Prismic.Predicates.at('document.type', 'blog')];
+            if (selectedTag) {
+                params.push(Prismic.Predicates.at('document.tags', [selectedTag]));
+            }
+            const response = await client.query(params);
+            if (response) {
+                setPosts(response.results)
+                if (!arrayTag.length) {
+                    const tags = response.results.map(obj => obj.tags).flat();
+                    const newEl = getRandomArray(tags)
+                    setArrayTag(newEl)
+                }
+                // dispatch({type: 'UPDATE_POSTS', dataPosts: response.results})
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
         }
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
     }
-    fetchData();
-  }, [])
 
-  const formateDate = (date) => {
-    const data = Date(date)
-    const formattedDate = Intl.DateTimeFormat('en-US', {
-      formatMatche: "basic",
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    }).format(data);
+    React.useEffect(() => {
 
-    return formattedDate
-  }
+        fetchData();
+    }, [])
 
-  const sortArray = (array) => {
-    array.sort(function (a, b) {
-      const dateA = new Date(a.data.date);
-      const dateB = new Date(b.data.date);
+    React.useEffect(() => {
+        fetchData()
+    }, [selectedTag])
 
-      return dateB - dateA
-    })
-  }
-  sortArray(posts)
+    const formateDate = (date) => {
+        const data = Date(date)
+        const formattedDate = Intl.DateTimeFormat('en-US', {
+            formatMatche: "basic",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        }).format(data);
+
+        return formattedDate
+    }
+
+    const sortArray = (array) => {
+        array.sort(function (a, b) {
+            const dateA = new Date(a.data.date);
+            const dateB = new Date(b.data.date);
+
+            return dateB - dateA
+        })
+    }
+    sortArray(posts)
+
+    const handleChangeBackground = (tag) => {
+        setIsActive(!active)
+        setSelectedTag(tag)
+        if (selectedTag) {
+            setSelectedTag('')
+        }
+    }
+
+    if (loading) {
+        return <Loader/>
+    }
 
 
-
-
-  if (loading) {
-    return <Loader/>
-  }
-
-  return (
-    <div className="blogWraper">
-      {posts.map(post => (
-        <div>
-          <div className="img-back"></div>
-             <h1 className='blog_title'>{RichText.asText(post.data.title)}</h1>
-          <div className='blog_wraper_subtitle'>
-            <p className='blog_subtitle'>{RichText.asText(post.data.type)}</p>
-            <p className='blog_dot'>&bull;</p>
-            <p className='blog_data'>{formateDate((post.data.date))}</p>
-          </div>
-          <div className='blog_withLink'>
-            <div className='blog_tags'>{post.tags.map(tag =>
-             <p>{`#${tag}`}</p>)}</div>
-            <div className='blog_preview'>
-              <div className='blog_text'>{RichText.asText(post.data.text)}</div>
+    return (
+        <div className="blogWraper">
+            {/*<input*/}
+            {/*type='text'*/}
+            {/*placeholder='search'*/}
+            {/*value={searchTerm}*/}
+            {/*onChange={handleChange}*/}
+            {/*/>*/}
+            <div className='search_tags '>
+                {arrayTag.slice(0, 5).map((tag, idx) => (
+                    <p key={idx} className={selectedTag === tag ? 'tags activeTags' : 'tags'}
+                       onClick={() => handleChangeBackground(tag)}>{`#${tag}`}</p>
+                ))}
             </div>
-            <Link className='link_BlogPost'  to={`${post.id}`}>Смотреть больше...</Link>
 
-          </div>
+
+            {posts.map((post, idx) => (
+                <div key={idx}>
+                    <div className="img-back"></div>
+                    <h1 className='blog_title'>{RichText.asText(post.data.title)}</h1>
+                    <div className='blog_wraper_subtitle'>
+                        <p className='blog_subtitle'>{RichText.asText(post.data.type)}</p>
+                        <p className='blog_dot'>&bull;</p>
+                        <p className='blog_data'>{formateDate((post.data.date))}</p>
+                    </div>
+                    <div className='blog_withLink'>
+                        <div className='blog_tags'>{post.tags.map(tag =>
+                            <p>{`#${tag}`}</p>)}</div>
+                        <div className='blog_preview'>
+                            <div className='blog_text'>{RichText.asText(post.data.text)}</div>
+                        </div>
+                        <Link className='link_BlogPost' to={`${post.id}`}>Смотреть больше...</Link>
+
+                    </div>
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  )
+    )
 }
 
 export default React.memo(BlogPage);
