@@ -1,16 +1,14 @@
-import * as React from 'react';
-import './style.css';
-import Form from '../Contact/components/Form'
+import * as React from "react";
+import "./style.css";
+import Form from "../Contact/components/Form";
 
-const Conact = () => {
-	return (
-		<div className='wrap_page'>
-			<div className="img-back-contact"></div>
-			<Form />
-		</div>
-	
-	)
+const Contacts = () => {
+  return (
+    <div className="wrap_page">
+      <div className="img-back-contact"></div>
+      <Form />
+    </div>
+  );
+};
 
-}
-
-export default Conact;
+export default Contacts;
